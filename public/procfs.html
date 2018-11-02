@@ -1,0 +1,215 @@
+<html>
+    <head>
+    </head>
+        <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.13.custom.min.js"></script>
+        <script type="text/javascript" src="js/jquery.corner.js"></script>
+        <script type="text/javascript" src="js/kid.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/kid_basic.css"/>
+        <link rel="stylesheet" type="text/css" href="css/tipTip.css"/>
+        <script type="text/javascript" src="js/jquery.tipTip.minified.js"></script>
+    <body>
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
+        <div class=demo>
+            <table  id="layoutTable">
+                <td><tr id="level0"></tr></td>
+                <td><tr id="level1"></tr></td>
+                <td><tr id="level2"></tr></td>
+                <td><tr id="level3"></tr></td>
+                <td><tr id="level4"></tr></td>
+                <td><tr id="level5"></tr></td>
+                <td><tr id="level6"></tr></td>
+                <td><tr id="level7"></tr></td>
+                <td><tr id="level8"></tr></td>
+                <td><tr id="level9"></tr></td>
+                <td><tr id="level10"></tr></td>
+                <td><tr id="level11"></tr></td>
+                <td><tr id="level12"></tr></td>
+                <td><tr id="level13"></tr></td>
+                <td><tr id="level14"></tr></td>
+                <td><tr id="level15"></tr></td>
+                <td><tr id="level16"></tr></td>
+                <td><tr id="level17"></tr></td>
+                <td><tr id="level18"></tr></td>
+                <td><tr id="level19"></tr></td>
+                <td><tr id="level20"></tr></td>
+            </table><div id=node0 class=hiddennode>
+
+<h2>ProcFS</h2>
+
+<p>$ls <span  title="Mount point of procfs in linux" class=nodelink data-rel="node1">/proc</span></p>
+
+<p><span  title="Pid 1 metadata exposed as a link" class=nodelink data-rel="node2">1</span>  <span  title="pid 134 exposed as a link" class=nodelink data-rel="node2">134</span>  146  3    335  4    612   6936  77   861  934  983  993<br />
+cgroups  diskstats    fs          kallsyms   kpagecount     mdstat   net 
+self      sys            tty          xen cmdline  dma          interrupts  kcore<br />
+kpageflags     meminfo pagetypeinfo  slabinfo  sysrq-trigger  uptime<br />
+zoneinfo cpuinfo  driver       iomem       keys       latency_stats  misc partitions<br />
+softirqs  sysvipc        version buddyinfo crypto   execdomains  ioports     key-users<br />
+loadavg        modules sched_debug   stat      timer_list     vmallocinfo bus devices<br />
+filesystems  irq         kmsg       locks          mounts schedstat     swaps     timer_stats    vmstat</p>
+
+</div>
+
+<div id=node1 class=hiddennode data-title="Proc fs">
+
+<p>Procfs (or the proc filesystem) is a special filesystem in UNIX-like
+operating systems that presents information about processes and other
+system information in a hierarchical file-like structure, providing a
+more convenient and standardized method for dynamically accessing
+process data held in the kernel than traditional tracing methods or
+direct access to kernel memory. Typically, it is mapped to a mount point
+named /proc at boot time.</p>
+
+<p>Procfs extends the everything as a file is a metaphor in Unix/Linux to
+data structures exposed by the kernel. By exposing the meta-data about processes as a file system, procfs allows applications like ps to be implemented in user space using the regular read, write and ioctl calls without any special interaction with the kernel.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Procfs">More info</a></p>
+
+</div>
+
+<div id=node2 class=hiddennode data-title="General structure of /proc/<pid>">
+
+<p>$ls <span  title="structure of pid 1" class=nodeinfo >/proc/1</span><br />
+<span  title="SELinux related process attributes" class=nodelink data-rel="node3">attr</span>  <span  title="Control group" class=nodelink data-rel="node4">cgroup</span>
+<span  title="This holds the complete command line for the process, unless the process is a zombie." class=nodelink data-rel="node5">cmdline</span>
+<span  title="comm value of a task" class=nodelink data-rel="node7">comm</span> 
+<span  title="Defines what memory segments to dump when a core dump is performed" class=nodelink data-rel="node8">coredump_filter</span>
+<span  title="Current working directory for this process" class=nodelink data-rel="node6">cwd</span>  exe<br />
+fdinfo latency  loginuid  mem        mounts      net        oom_adj    pagemap  root   schedstat  smaps  stat<br />
+status   task  auxv  clear_refs    cpuset           environ  fd   io      limits  maps      mountinfo<br />
+mountstats  numa_maps  oom_score  personality  sched  sessionid  stack  statm  syscall  wchan</p>
+
+</div>
+
+<div id=node8 class=hiddennode data-title="Core dump filter">
+
+<p>Since kernel 2.6.23, the Linux-specific /proc/PID/coredump_filter file
+can be used to control which memory segments are written to the core
+dump file in the event that a core dump is performed for the process
+with the corresponding process ID.</p>
+
+<p>The value in the file is a bit mask of memory mapping types (see
+mmap(2)). If a bit is set in the mask, then memory mappings of the
+corresponding type are dumped; otherwise they are not dumped. The bits
+in this file have the following meanings:</p>
+
+<p>bit 0 Dump anonymous private mappings.<br />
+bit 1 Dump anonymous shared mappings.<br />
+bit 2 Dump file-backed private mappings.<br />
+bit 3 Dump file-backed shared mappings.<br />
+bit 4 (since Linux 2.6.24) Dump ELF headers.<br />
+bit 5 (since Linux 2.6.28) Dump private huge pages.<br />
+bit 6 (since Linux 2.6.28) Dump shared huge pages.</p>
+
+<p>By default, the following bits are set: 0, 1, 4 (if the
+CONFIG_CORE_DUMP_DEFAULT_ELF_HEADERS kernel configuration option is
+enabled), and 5. The value of this file is displayed in hexadecimal.
+(The default value is thus displayed as 33.)</p>
+
+<p>Memory-mapped I/O pages such as frame buffer are never dumped, and
+virtual DSO pages are always dumped, regardless of the coredump_filter
+value.</p>
+
+<p>A child process created via fork(2) inherits its parent's
+coredump_filter value; the coredump_filter value is preserved across an
+execve(2).</p>
+
+<p>It can be useful to set coredump_filter in the parent shell before
+running a program, for example:</p>
+
+<p>$ echo 0x7 > /proc/self/coredump_filter
+ $ ./some_program</p>
+
+<p>This file is only provided if the kernel was built with the
+CONFIG_ELF_CORE configuration option.</p>
+
+<p><em>src man core(5)</em></p>
+
+</div>
+
+<div id=node7 class=hiddennode data-title="/proc/[pid]/comm">
+
+<p>These files provide a method to access a tasks comm value. It also allows for
+a task to set its own or one of its thread siblings comm value. The comm value
+is limited in size compared to the cmdline value, so writing anything longer
+then the kernel's TASK_COMM_LEN (currently 16 chars) will result in a truncated
+comm value.</p>
+
+<p><a href="http://kernel.org/doc/Documentation/filesystems/proc.txt">src</a></p>
+
+</div>
+
+<div id=node6 class=hiddennode data-title="Current working directory">
+
+<p>This is a symbolic link to the current working directory of the process.
+To find out the current working directory of process 20, for instance,
+you can do this:</p>
+
+<p>$ cd /proc/20/cwd; /bin/pwd</p>
+
+<p>Note that the pwd command is often a shell built-in, and might not work
+properly. In bash(1), you may use pwd -P.
+In a multithreaded process, the contents of this symbolic link are not
+available if the main thread has already terminated (typically by calling pthread_exit).</p>
+
+</div>
+
+<div id=node5 class=hiddennode data-title="cmdline">
+
+<p>This holds the complete command line for the process, unless the process
+is a zombie. In the latter case, there is nothing in this file: that is,
+a read on this file will return 0 characters. The command-line arguments
+appear in this file as a set of strings separated by null bytes ('\0'),
+with a further null byte after the last string.</p>
+
+</div>
+
+<div id=node3 class=hiddennode data-title="SELinux related process attributes">
+
+<p>$ ls  /proc/1/attr/<br />
+current  exec  fscreate  keycreate  prev  sockcreate</p>
+
+<p>/proc/PID/attr/current represents the current attributes of the process.  In SELinux, this node is used to get the security context of a process, but not to set the security context (a write is always denied), since SELinux limits process security transitions to execve (see below).  Other security modules may choose to support set operations via writes to this node, and the patch allows for such usage.</p>
+
+<p>/proc/PID/attr/exec represents the attributes to assign to the process upon a subsequent execve call.  A write to this node followed by an execve replaces the execve_secure call of the original SELinux API.  This is needed to support role/domain transitions in SELinux, and execve is the preferred point to make such transitions because it offers better control over the initialization of the process in the new security label and the inheritance of state.  In SELinux, this attribute is reset on execve after use so that the new program reverts to the default behavior for any exec calls that it may make.  In SELinux, a process can only set its own /proc/PID/attr/exec attribute.</p>
+
+<p>/proc/PID/attr/fscreate represents the attributes to assign to files created by subsequent calls to open, mkdir, symlink, and mknod. A write to this node followed by a file creation call replaces the extended file creation calls of the original SELinux API.  This call is necessary to support creation of a file in a secure state, so that there is no risk of inappropriate access being obtained between the time of creation and the time that attributes are set.  Using a single default based on the parent directory is inadequate, e.g. /etc/shadow and /etc/passwd require different security protections, but are re-created in the same parent directory on each transaction.  In SELinux, this attribute is also reset on execve so that the new program reverts to the default behavior for any file creation calls it may make, but the attribute will persist across multiple file creation calls within a program unless it is explicitly reset.  In SELinux, a process can only set its own /proc/PID/attr/fscreate attribute.</p>
+
+<ul>
+<li><a href="http://lwn.net/Articles/28222/">src</a></li>
+<li><a href="http://www.ibm.com/developerworks/linux/library/l-rbac-selinux/">Used for Role based access control in SELinux</a></li>
+</ul>
+
+</div>
+
+<div id=node4 class=hiddennode data-title="Control groups">
+
+<p>Control Groups provide a mechanism for aggregating/partitioning sets of tasks, and all their future children, into hierarchical groups with specialized behaviour.</p>
+
+<p>Definitions:</p>
+
+<p>A <em>cgroup</em> associates a set of tasks with a set of parameters for one or more subsystems.</p>
+
+<p>A <em>subsystem</em> is a module that makes use of the task grouping facilities provided by cgroups to treat groups of tasks in particular ways. A subsystem is typically a "resource controller" that schedules a resource or applies per-cgroup limits, but it may be anything that wants to act on a group of processes, e.g. a virtualization subsystem.</p>
+
+<p>A <em>hierarchy</em> is a set of cgroups arranged in a tree, such that every task in the system is in exactly one of the cgroups in the hierarchy, and a set of subsystems; each subsystem has system-specific state attached to each cgroup in the hierarchy.  Each hierarchy has an instance of the cgroup virtual filesystem associated with it.</p>
+
+<p>At any one time there may be multiple active hierarchies of task cgroups. Each hierarchy is a partition of all tasks in the system.</p>
+
+<p>User level code may create and destroy cgroups by name in an instance of the cgroup virtual file system, specify and query to which cgroup a task is assigned, and list the task pids assigned to a cgroup. Those creations and assignments only affect the hierarchy associated with that instance of the cgroup file system.</p>
+
+<p>On their own, the only use for cgroups is for simple job tracking. The intention is that other subsystems hook into the generic cgroup support to provide new attributes for cgroups, such as accounting/limiting the resources which processes in a cgroup can access. For example, cpusets (see Documentation/cgroups/cpusets.txt) allows you to associate a set of CPUs and a set of memory nodes with the
+tasks in each cgroup.</p>
+
+<p><em>Why are cgroups needed ?</em></p>
+
+<p>There are multiple efforts to provide process aggregations in the Linux kernel, mainly for resource tracking purposes. Such efforts include cpusets, CKRM/ResGroups, UserBeanCounters, and virtual server namespaces. These all require the basic notion of a grouping/partitioning of processes, with newly forked processes ending in the same group (cgroup) as their parent process.</p>
+
+<p>The kernel cgroup patch provides the minimum essential kernel mechanisms required to efficiently implement such groups. It has minimal impact on the system fast paths, and provides hooks for specific subsystems such as cpusets to provide additional behaviour as desired.</p>
+
+<p><a href="http://www.kernel.org/doc/Documentation/cgroups/cgroups.txt">Cgroups documentation</a></p>
+
+</div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+body {
+  background: rgb(210,235,249); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(210,235,249,1) 0%, rgba(254,255,255,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(210,235,249,1)), color-stop(100%,rgba(254,255,255,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(210,235,249,1) 0%,rgba(254,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(210,235,249,1) 0%,rgba(254,255,255,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(210,235,249,1) 0%,rgba(254,255,255,1) 100%); /* IE10+ */
+  background: linear-gradient(top, rgba(210,235,249,1) 0%,rgba(254,255,255,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ebf9', endColorstr='#feffff',GradientType=0 ); /* IE6-9 */
+}
+
+.level {
+    width  : auto;
+    height : auto;
+    visibility : visible;
+    float : none;
+}
+
+.nodelink{
+    border-bottom-style : solid;
+    border-bottom-width : 2px;
+    border-bottom-color : #E37186;
+}
+
+.nodeinfo{
+    border-bottom-style : dotted;
+    border-bottom-width : 1px;
+    border-bottom-color : #E37186;
+}
+
+.hiddennode {
+    visibility : hidden;
+}
+
+.node {
+    visibility : visible;
+    border-style : solid;
+    border-width : 2px;
+    border-color : #666666;
+    padding : 4px;
+    overflow-y : auto;
+    overflow-x : hidden;
+    color: rgb(0,0,0);
+    font:  13px/1.7 "Optima","Helvetica","Arial",sans-serif;
+}
+
+.nodeTitleBar {
+    border-style : solid;
+    border-width : 1px;
+    border-color : rgb(0, 0, 0);
+    color : black;
+    font-weight : bold;
+    background-color : #AAAAAA;
+}
+
+th {
+    color: rgb(0,0,0);
+    font:  13px/1.7 "Optima","Helvetica","Arial",sans-serif;
+    font-weight : bold;
+    text-align : center;
+}
+
+td {
+    color: rgb(0,0,0);
+    font:  13px/1.7 "Optima","Helvetica","Arial",sans-serif;
+}

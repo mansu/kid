@@ -1,0 +1,144 @@
+<html>
+    <head>
+    </head>
+        <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.13.custom.min.js"></script>
+        <script type="text/javascript" src="js/jquery.corner.js"></script>
+        <script type="text/javascript" src="js/kid.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/kid_basic.css"/>
+        <link rel="stylesheet" type="text/css" href="css/tipTip.css"/>
+        <script type="text/javascript" src="js/jquery.tipTip.minified.js"></script>
+    <body>
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
+        <div class=demo>
+            <table  id="layoutTable">
+                <td><tr id="level0"></tr></td>
+                <td><tr id="level1"></tr></td>
+                <td><tr id="level2"></tr></td>
+                <td><tr id="level3"></tr></td>
+                <td><tr id="level4"></tr></td>
+                <td><tr id="level5"></tr></td>
+                <td><tr id="level6"></tr></td>
+                <td><tr id="level7"></tr></td>
+                <td><tr id="level8"></tr></td>
+                <td><tr id="level9"></tr></td>
+                <td><tr id="level10"></tr></td>
+                <td><tr id="level11"></tr></td>
+                <td><tr id="level12"></tr></td>
+                <td><tr id="level13"></tr></td>
+                <td><tr id="level14"></tr></td>
+                <td><tr id="level15"></tr></td>
+                <td><tr id="level16"></tr></td>
+                <td><tr id="level17"></tr></td>
+                <td><tr id="level18"></tr></td>
+                <td><tr id="level19"></tr></td>
+                <td><tr id="level20"></tr></td>
+            </table><div id=node0 class=hiddennode>
+
+<p><span  title="Search files for specific text" class=nodelink data-rel="node1">grep</span> <span  title="posix regular expression syntax" class=nodelink data-rel="node3">"&#91;Ff&#93;oo"</span>  <span  title="input file" class=nodeinfo >input&#95;file</span><br />
+grep <span  title="regular expression" class=nodelink data-rel="lnode3">"&#91;Ff&#93;oo"</span> file<br />
+grep <span  title="Intermediete regular expression" class=nodelink data-rel="lnode4">"&#91;F|f&#93;oo"</span> file<br />
+grep <span  title="Advanced regular expression" class=nodelink data-rel="lnode5">"&#91;FADVf&#93;oo"</span> file</p>
+
+<p><span  title="Options that affect the grep output" class=nodelink data-rel="node8">Output options</span>
+<span  title="Options that affect the input to ls" class=nodelink data-rel="node7">Input options</span></p>
+
+</div>
+
+<div id=node6 data-title="grep info" class=hiddennode>
+
+<p>FOO<br />
+foo<br />
+Hello Jello!<br />
+a<br />
+aa<br />
+aaa<br />
+aaaaaabbbbbbb<br />
+aaaabbbbb</p>
+
+</div>
+
+<div id=node3 data-title="Posix regular expression syntax" class=hiddennode>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Regular_expression#POSIX_Basic_Regular_Expressions">Basic  regular expression syntax</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Regular_expression#POSIX_Extended_Regular_Expressions">Extended regular expression syntax</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Regular_expression#POSIX_character_classes">Posix character classes</a></li>
+</ul>
+
+</div>
+
+<div id=node3 data-title="Simple regular expression syntax" class=hiddennode>
+
+</div>
+
+<div id=node4 data-title="Intermediete regular expressions" class=hiddennode>
+
+<p>Intermediete regular expressions.</p>
+
+</div>
+
+<div id=node5 data-title="Advanced regular expressions" class=hiddennode>
+
+<p>Advanced regular expressions.</p>
+
+</div>
+
+<div id=node1 data-title="Grep info" class=hiddennode>
+
+<p>grep [options] PATTERN [FILE...]<br />
+ grep [options] [-e PATTERN | -f FILE] [FILE...]</p>
+
+<p>Grep  searches  the  named  input  FILEs (or standard input if no files are named, or the file name - is given) for lines containing a match to the given PATTERN.  By default, grep prints the matching lines.
+In addition, two variant programs egrep and fgrep are available.  Egrep is the same as grep -E.  Fgrep is the same as grep -F.</p>
+
+<p><span  title="Why is grep so fast?" class=nodelink data-rel="node2">GNU grep Implementation</span></p>
+
+</div>
+
+<div id=node2 data-title="Grep implementation" class=hiddennode>
+
+<p>GNU grep uses the well-known Boyer-Moore algorithm, which looks first for the final letter of the target string, and uses a lookup table to tell it how far ahead it can skip in the input whenever it finds a non-matching character. In addition, it also performs the following optimizations:</p>
+
+<ol>
+<li>GNU grep is fast because it AVOIDS LOOKING AT EVERY INPUT BYTE.</li>
+<li>GNU grep is fast because it EXECUTES VERY FEW INSTRUCTIONS FOR EACH BYTE that it <em>does</em> look at.</li>
+</ol>
+
+<p>GNU grep also unrolls the inner loop of Boyer-Moore, and sets up the Boyer-Moore delta table entries in such a way that it doesn't need to do the loop exit test at every unrolled step.  The result of this is that, in the limit, GNU grep averages fewer than 3 x86 instructions executed for each input byte it actually looks at (and it skips many bytes entirely).</p>
+
+<p>See "Fast String Searching", by Andrew Hume and Daniel Sunday, in the November 1991 issue of Software Practice &amp; Experience, for a good discussion of Boyer-Moore implementation tricks.  It's available as a free PDF online.</p>
+
+<p>Once you have fast search, you'll find you also need fast input.  GNU grep uses raw Unix input system calls and avoids copying data after reading it.  Moreover, GNU grep AVOIDS BREAKING THE INPUT INTO LINES.  Looking for newlines would slow grep down by a factor of several times, because to find the newlines it would have to look at every byte!</p>
+
+<p>So instead of using line-oriented input, GNU grep reads raw data into a large buffer, searches the buffer using Boyer-Moore, and only when it finds a match does it go and look for the bounding newlines.  (Certain command line options like -n disable this optimization.)</p>
+
+<p>Finally, when I was last the maintainer of GNU grep (15+ years ago...), GNU grep also tried very hard to set things up so that the <em>kernel</em> could ALSO avoid handling every byte of the input, by using mmap() instead of read() for file input.  At the time, using read() caused most Unix versions to do extra copying.  Since GNU grep passed out of my hands, it appears that use of mmap became non-default, but you can still get it via --mmap.  And at least in cases where the data is already file system buffer caches, mmap is still faster.</p>
+
+<p><a href="http://lists.freebsd.org/pipermail/freebsd-current/2010-August/019310.html">src</a></p>
+
+<p><span  title="test tip" class=nodeinfo >test</span></p>
+
+</div>
+
+<div id=node8 data-title="Output options" class=hiddennode>
+
+<table>
+<thead>
+<tr>
+  <th>Option</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>-A <span  title="number of lines" class=nodeinfo >n</span></td>
+  <td>Number of lines to print after the match</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+        </div>
+    </body>
+</html>

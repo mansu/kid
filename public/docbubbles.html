@@ -1,0 +1,84 @@
+<html>
+    <head>
+    </head>
+        <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.13.custom.min.js"></script>
+        <script type="text/javascript" src="js/jquery.corner.js"></script>
+        <script type="text/javascript" src="js/kid.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/kid_basic.css"/>
+        <link rel="stylesheet" type="text/css" href="css/tipTip.css"/>
+        <script type="text/javascript" src="js/jquery.tipTip.minified.js"></script>
+    <body>
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
+        <div class=demo>
+            <table  id="layoutTable">
+                <td><tr id="level0"></tr></td>
+                <td><tr id="level1"></tr></td>
+                <td><tr id="level2"></tr></td>
+                <td><tr id="level3"></tr></td>
+                <td><tr id="level4"></tr></td>
+                <td><tr id="level5"></tr></td>
+                <td><tr id="level6"></tr></td>
+                <td><tr id="level7"></tr></td>
+                <td><tr id="level8"></tr></td>
+                <td><tr id="level9"></tr></td>
+                <td><tr id="level10"></tr></td>
+                <td><tr id="level11"></tr></td>
+                <td><tr id="level12"></tr></td>
+                <td><tr id="level13"></tr></td>
+                <td><tr id="level14"></tr></td>
+                <td><tr id="level15"></tr></td>
+                <td><tr id="level16"></tr></td>
+                <td><tr id="level17"></tr></td>
+                <td><tr id="level18"></tr></td>
+                <td><tr id="level19"></tr></td>
+                <td><tr id="level20"></tr></td>
+            </table><div id=node0 class=hiddennode>
+
+<h1>DocBubbles</h1>
+
+<p>Doc Bubbles is a non-linear text documentation format. Unlike a linear textual document which starts at the top left and ends at bottom right of the page, docbubbles allows one to write a document as an interactive and explorable graph. Docbubbles can be thought of a more fine grained and interactive version of <a href="http://en.wikipedia.org/wiki/Mind_map">mindmap</a> implemented in a browser.</p>
+
+<p>A docbubbles document is made up of several bubbles. The box in which you are viewing this text in is one such bubble. In addition to normal HTML text, a docbubbles document has 2 special kinds of text.</p>
+
+<ul>
+<li><em>InfoNode</em>: An infoNode is a fancy tooltip. For example, an infoNode like <span  title="An info node can be used to display a fancy tooltip like this one." class=nodeinfo >this text</span> will provide additional information to a document. </li>
+<li><em>NodeLink</em>: Like a hyperlink on a webpage, a node link is a link to a new bubble.  Click on <span  title="Open a new docbubble" class=nodelink data-rel="node1">this link</span> to open a new bubble in the same page.  </li>
+</ul>
+
+<p>Docbubbles is better than a normal page of text with various sections because it will help you include discussions that may be related but orthogonal to current discussion page. For example, click on the next node link to understand a very high level <span  title="What is a docbubble?" class=nodelink data-rel="node2">technical overview of docbubble</span>.  To close a bubble click on the "X" symbol in the title bar of the bubble.</p>
+
+<p>You can include anything in a bubble. For example, you can have open a webpage like <span  title="Open yahoo.com in a bubble" class=nodelink data-rel="node3">yahoo.com</span> or a full blown <span  title="linux terminal" class=nodelink data-rel="lnode4">linux terminal</span> in a new bubble.</p>
+
+</div>
+
+<div id=node1 class=hiddennode data-title="Another bubble">
+
+<p>As you can see, unlike the html link that would refresh the current page or open a new link in a new tab/window, the new bubble opens below the current bubble in the same page.  Opening the bubble in the same page, helps you keep the context of how you arrived here.</p>
+
+</div>
+
+<div id=node2 class=hiddennode data-title="Technical
+overview of a docbuubble">
+
+<p>Technically, each bubble in this document is a HTML DIV. A docbubbles
+page is an HTML page containing a collection of divs containing content written in <span  title="extended to support NodeLink and InfoNode" class=nodeinfo >extended markdown syntax</span>. Since each bubble is a HTML DIV, any HTML content can be shown in a doc bubble.</p>
+
+<p>When the HTML page is opened, all nodes/div's except the <span  title="div with id node0" class=nodeinfo >first div</span> are hidden. When a node link is clicked, the selected div is displayed on the page. Currently, we use a very simple placement algorithm to place the divs on the page.</p>
+
+</div>
+
+<div id=node3 class=hiddennode data-title="">
+
+<iframe src="http://m.yahoo.com/" width=345 height=380> </iframe>
+
+</div>
+
+<div id=node4 class=hiddennode>
+
+<iframe src="/jslinux/jslinux.htm" width=685 height=490> </iframe>
+
+</div>
+        </div>
+    </body>
+</html>

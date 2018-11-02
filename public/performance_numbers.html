@@ -1,0 +1,119 @@
+<html>
+    <head>
+    </head>
+        <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.13.custom.min.js"></script>
+        <script type="text/javascript" src="js/jquery.corner.js"></script>
+        <script type="text/javascript" src="js/kid.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/kid_basic.css"/>
+        <link rel="stylesheet" type="text/css" href="css/tipTip.css"/>
+        <script type="text/javascript" src="js/jquery.tipTip.minified.js"></script>
+    <body>
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
+        <div class=demo>
+            <table  id="layoutTable">
+                <td><tr id="level0"></tr></td>
+                <td><tr id="level1"></tr></td>
+                <td><tr id="level2"></tr></td>
+                <td><tr id="level3"></tr></td>
+                <td><tr id="level4"></tr></td>
+                <td><tr id="level5"></tr></td>
+                <td><tr id="level6"></tr></td>
+                <td><tr id="level7"></tr></td>
+                <td><tr id="level8"></tr></td>
+                <td><tr id="level9"></tr></td>
+                <td><tr id="level10"></tr></td>
+                <td><tr id="level11"></tr></td>
+                <td><tr id="level12"></tr></td>
+                <td><tr id="level13"></tr></td>
+                <td><tr id="level14"></tr></td>
+                <td><tr id="level15"></tr></td>
+                <td><tr id="level16"></tr></td>
+                <td><tr id="level17"></tr></td>
+                <td><tr id="level18"></tr></td>
+                <td><tr id="level19"></tr></td>
+                <td><tr id="level20"></tr></td>
+            </table><div id=node0  class=hiddennode>
+
+<p><strong>Back of the envelope performance numbers for general system design.</strong></p>
+
+<p><span  title="General performance number" class=nodelink data-rel="node2">Back of the envelope calcaulations for system design</span><br />
+<span  title="Disk related calculations" class=nodelink data-rel="node3">Disk related back of the envelope calculations</span><br />
+<span  title="Programming related" class=nodelink data-rel="node4">Programming related back of the envelope calculations</span><br />
+<span  title="Rough Java performance numbers" class=nodelink data-rel="node5">Rough Java related performance numbers</span></p>
+
+</div>
+
+<div id=node2 data-title="General back of the envelope calculations" class=hiddennode>
+
+<ul>
+<li>L1 cache reference 0.5 ns</li>
+<li>Branch mispredict 5 ns</li>
+<li>L2 cache reference 7 ns</li>
+<li>Mutex lock/unlock 100 ns</li>
+<li>Main memory reference 100 ns</li>
+<li>Compress 1K bytes with Zippy 10,000 ns</li>
+<li>Send 2K bytes over 1 Gbps network 20,000 ns</li>
+<li>Read 1 MB sequentially from memory 250,000 ns</li>
+<li>Round trip within same datacenter 500,000 ns</li>
+<li>Disk seek 10,000,000 ns</li>
+<li>Read 1 MB sequentially from network 10,000,000 ns</li>
+<li>Read 1 MB sequentially from disk 30,000,000 ns</li>
+<li>Send packet CA-&#62;Netherlands-&#62;CA 150,000,000 ns </li>
+</ul>
+
+<p><a href="http://www.google.com/moderator/#9/e=7f3&amp;g=Numbers%2520everyone%2520should%2520know">Talk by Jeff Dean</a></p>
+
+</div>
+
+<div id=node3 data-title="Disk related calculations" class=hiddennode>
+
+<p>Writes Are Expensive!</p>
+
+<ul>
+<li>Datastore is transactional: writes require disk access</li>
+<li>Disk access means disk seeks</li>
+<li>Rule of thumb: 10ms for a disk seek</li>
+<li>Simple math: 1s / 10ms = 100 seeks/sec maximum</li>
+<li>Depends on:
+
+<ul>
+<li>The size and shape of your data</li>
+<li>Doing work in batches (batch puts and gets)</li>
+</ul></li>
+</ul>
+
+<p>Reads Are Cheap!</p>
+
+<ul>
+<li>Reads do not need to be transactional, just consistent</li>
+<li>Data is read from disk once, then it's easily cached</li>
+<li>All subsequent reads come straight from memory</li>
+<li>Rule of thumb: 250usec for 1MB of data from memory. Simple math: 1s / 250usec = 4GB/sec maximum</li>
+<li>For a 1MB entity, that's 4000 fetches/sec</li>
+</ul>
+
+</div>
+
+<div id=node4 data-title="Programming language related calculations" class=hiddennode>
+
+<ul>
+<li>On a web server, enabling SSL drops the throughput per server to 1/10th with SSL sessions enabled. <a href="http://www.cs.ucr.edu/~bhuyan/papers/ssl.pdf">src</a></li>
+<li>On a typical linux server, one can open upto a million concurrent network sockets.</li>
+<li>A garbage collector typically adds about 10% performance overhead than manual memory management.</li>
+</ul>
+
+</div>
+
+<div id=node5 data-title="Java performance numbers" class=hiddennode>
+
+<ul>
+<li>Each logging statement in log4j adds about 100 micro seconds(to construct and write to disk) of performance overhead. About 1 micro second is spent constructing the log message.</li>
+<li>A GC typically adds about 10% performance overhead than manual memory management.</li>
+<li>JVM is known to scale upto 500-1000 threads easily. </li>
+</ul>
+
+</div>
+        </div>
+    </body>
+</html>

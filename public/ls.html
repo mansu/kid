@@ -1,0 +1,333 @@
+<html>
+    <head>
+    </head>
+        <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.13.custom.min.js"></script>
+        <script type="text/javascript" src="js/jquery.corner.js"></script>
+        <script type="text/javascript" src="js/kid.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/kid_basic.css"/>
+        <link rel="stylesheet" type="text/css" href="css/tipTip.css"/>
+        <script type="text/javascript" src="js/jquery.tipTip.minified.js"></script>
+    <body>
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
+        <div class=demo>
+            <table  id="layoutTable">
+                <td><tr id="level0"></tr></td>
+                <td><tr id="level1"></tr></td>
+                <td><tr id="level2"></tr></td>
+                <td><tr id="level3"></tr></td>
+                <td><tr id="level4"></tr></td>
+                <td><tr id="level5"></tr></td>
+                <td><tr id="level6"></tr></td>
+                <td><tr id="level7"></tr></td>
+                <td><tr id="level8"></tr></td>
+                <td><tr id="level9"></tr></td>
+                <td><tr id="level10"></tr></td>
+                <td><tr id="level11"></tr></td>
+                <td><tr id="level12"></tr></td>
+                <td><tr id="level13"></tr></td>
+                <td><tr id="level14"></tr></td>
+                <td><tr id="level15"></tr></td>
+                <td><tr id="level16"></tr></td>
+                <td><tr id="level17"></tr></td>
+                <td><tr id="level18"></tr></td>
+                <td><tr id="level19"></tr></td>
+                <td><tr id="level20"></tr></td>
+            </table><div id=node0 class=hiddennode>
+
+<p><span  title="ls uses stat call to get the file attributes" class=nodelink data-rel="node1">ls</span> <span  title="display long options" class=nodeinfo >-l</span> /bin/ls /dev/sda1 /dev/xvda1 /dev/tty0 /usr/bin/wall</p>
+
+<table>
+<thead>
+<tr>
+  <th><span  title="file mode" class=nodelink data-rel="node2">file mode</span></th>
+  <th><span  title="# of inodes pointing to this inode" class=nodeinfo >number of links</span></th>
+  <th><span  title="uid/name of the user who owns the file. <li>-g hides this field. <li> -n prints numeric uid." class=nodeinfo >uid</span></th>
+  <th><span  title="gid/name of group that owns this file. <li> -G hides this column. <li> -n print numeric gid." class=nodeinfo >gid</span></th>
+  <th><span  title="file size in bytes. <li> Add -S to sort by file size. <li>-h human readable format." class=nodeinfo >file size</span></th>
+  <th><span  title="ctime of the file. <li> --time-style=STYLE STYLE: full-iso, long-iso, iso, locale, +FORMAT." class=nodeinfo >time</span></th>
+  <th>file name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><span  title="normal file" class=nodelink data-rel="node3">-</span><span  title="owner permissions" class=nodeinfo >r-x</span><span  title="group permissions" class=nodeinfo >r-x</span><span  title="permissions for everyone else" class=nodeinfo >r-x</span></td>
+  <td>1</td>
+  <td>root</td>
+  <td>wheel</td>
+  <td>80688</td>
+  <td>Jul 13  2009</td>
+  <td>/bin/ls</td>
+</tr>
+<tr>
+  <td><span  title="sym link" class=nodeinfo >l</span><span  title="file permissions" class=nodelink data-rel="node4">rwxrwxrwx</span></td>
+  <td>1</td>
+  <td>root</td>
+  <td>root</td>
+  <td>5</td>
+  <td>Apr 24 08:14</td>
+  <td>/dev/sda1 -> xvda1</td>
+</tr>
+<tr>
+  <td><span  title="character device" class=nodelink data-rel="node3">c</span>rw--w----</td>
+  <td>1</td>
+  <td>root</td>
+  <td><span  title="Eg. to acces /dev/ACMx" class=nodelink data-rel="node10">tty</span></td>
+  <td><span  title="major number of device" class=nodelink data-rel="node9">4</span>,<span  title="minor number of device" class=nodelink data-rel="node9">0</span></td>
+  <td>Apr 24 08:13</td>
+  <td>/dev/tty0</td>
+</tr>
+<tr>
+  <td><span  title="block device" class=nodeinfo >b</span>rw-rw----</td>
+  <td>1</td>
+  <td>root</td>
+  <td><span  title="Access to block devices not affected by other groups such as optical, floppy, and storage." class=nodelink data-rel="node10">disk</span></td>
+  <td><span  title="major number" class=nodelink data-rel="node9">202</span>,<span  title="minor number" class=nodelink data-rel="node9">1</span></td>
+  <td>Apr 24 08:14</td>
+  <td>/dev/xvda1</td>
+</tr>
+<tr>
+  <td>-r-xr-sr-x</td>
+  <td>1</td>
+  <td>root</td>
+  <td>tty</td>
+  <td>8316</td>
+  <td>Jan 17 22:24</td>
+  <td>/usr/bin/wall</td>
+</tr>
+</tbody>
+</table>
+
+<p><span  title="Format ls output" class=nodelink data-rel="node6">Output formatting options</span>
+<span  title="Options that affect the input to ls" class=nodelink data-rel="node7">Input options</span>
+<span  title="SELinux options" class=nodelink data-rel="node8">SELinux options</span></p>
+
+</div>
+
+<div id=node1 data-title="ls info" class=hiddennode>
+
+<p>For each operand that names a file of a type other than directory, ls
+displays its name as well as any requested, associated information.  For
+each operand that names a file of type directory, ls displays the names
+of files contained within that directory, as well as any requested, asso-
+ciated information.</p>
+
+<p>If no operands are given, the contents of the current directory are dis-
+played.  If more than one operand is given, non-directory operands are
+displayed first; directory and non-directory operands are sorted sepa-
+rately and in lexicographical order.</p>
+
+</div>
+
+<div id=node2 data-title="File Mode" class=hiddennode>
+
+<p>Everything in linux is a file. So, a file mode for a file consists of an the file type and file permissions. Since every file is repsented as an inode entry on the file system file type is actually called an <span  title="File type" class=nodelink data-rel="node3">entry type</span>.</p>
+
+<p>The file permissions in turn consists of three sets of <span  title="permission details" class=nodelink data-rel="node4">permissions</span>: owner permissions(one for the owner of the file), group permissions(group the file belongs to) and other permissions(permissions for everyone else).</p>
+
+</div>
+
+<div id="node3" class=hiddennode data-title="Entry or File Type">
+
+<p>The file mode printed under the -l depicts the type of file. This option consists of the entry type, owner permissions, and group permissions.  The entry type character describes the type of file, as follows:</p>
+
+<ul>
+<li>b     Block special file.</li>
+<li>c     Character special file.</li>
+<li>d     Directory.</li>
+<li>l     Symbolic link.</li>
+<li>s     Socket link.</li>
+<li>p     FIFO.</li>
+<li>&#45;     Regular file.</li>
+</ul>
+
+</div>
+
+<div id=node4 class=hiddennode data-title="permissions">
+
+<p>The next three fields are three characters each: owner permissions, group
+permissions, and other permissions.  Each field has three character posi-
+tions:</p>
+
+<ul>
+<li>If r, the file is readable; if -, it is not readable.</li>
+<li>If w, the file is writable; if -, it is not writable.</li>
+<li>The first of the following that applies:</li>
+<li>S     If in the owner permissions, the file is not executable and set-user-ID mode is set.  If in the group permissions, the file is not executable and set-group-ID mode is set.</li>
+<li>s     If in the owner permissions, the file is executable and set-user-ID mode is set.  If in the group permissions, the file is executable and set-group-ID mode is set.</li>
+<li>x     The file is executable or the directory is searchable.
+*-     The file is neither readable, writable, executable, nor set-user-ID nor set-group-ID mode, nor sticky.  (See below.)</li>
+</ul>
+
+<p>These next two apply only to the third character in the last group (other permissions).</p>
+
+<ul>
+<li>T     The sticky bit is set (mode 1000), but not execute or search permission.  (See chmod(1) or sticky(8).)</li>
+<li>t     The sticky bit is set (mode 1000), and is searchable or executable.  (See chmod(1) or sticky(8).)</li>
+</ul>
+
+<p>To change permissions on a file look at <span  title="change file permissions" class=nodelink data-rel="node5">chmod</span>.</p>
+
+</div>
+
+<div id=node5 class=hiddennode data-title="chmod">
+
+<p>chmod command is used to change permissions on a file.</p>
+
+</div>
+
+<div id=node6 class=hiddennode data-title="Format ls output">
+
+<table>
+<thead>
+<tr>
+  <th>Option</th>
+  <th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>-1</td>
+  <td>(The numeric digit ``one''.)  Force output to be one entry per line. This is the default when output is not to a terminal.</td>
+</tr>
+<tr>
+  <td>-A</td>
+  <td>List all entries except for . and ... Always set for the super user.</td>
+</tr>
+<tr>
+  <td>-a</td>
+  <td>Include directory entries whose names begin with a dot (.).</td>
+</tr>
+<tr>
+  <td>-B</td>
+  <td>Force printing of non-printable characters (as defined by ctype(3) and current locale settings) in file names as \xxx, where xxx is the numeric value of the character in octal.</td>
+</tr>
+<tr>
+  <td>-b</td>
+  <td>As -B, but use C escape codes whenever possible.</td>
+</tr>
+<tr>
+  <td>-C</td>
+  <td>Force multi-column output; this is the default when output is to a terminal.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<div id=node7 class=hiddennode data-title="Input options">
+
+<table>
+<thead>
+<tr>
+  <th>Short option</th>
+  <th>long option</th>
+  <th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>-a</td>
+  <td>--all</td>
+  <td>do not ignore entries starting with .</td>
+</tr>
+<tr>
+  <td>-A</td>
+  <td>--almost-all</td>
+  <td>do not list implied . and ..</td>
+</tr>
+<tr>
+  <td>-B</td>
+  <td>--ignore-backups</td>
+  <td>do not list implied entries ending with ~</td>
+</tr>
+<tr>
+  <td>-d</td>
+  <td>--directory</td>
+  <td>list directory entries instead of contents, and do not  dereference symbolic links</td>
+</tr>
+<tr>
+  <td>-H</td>
+  <td>--dereference-command-line</td>
+  <td>follow symbolic links listed on the command line</td>
+</tr>
+<tr>
+  <td></td>
+  <td>--dereference-command-line-symlink-to-dir</td>
+  <td>follow each command line symbolic link that points to  a  directory</td>
+</tr>
+<tr>
+  <td>-L</td>
+  <td>--dereference</td>
+  <td>when showing file information for a symbolic link, show information for the file the link references rather than for  the  link itself</td>
+</tr>
+<tr>
+  <td>-R</td>
+  <td>--recursive</td>
+  <td>list subdirectories recursively</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<div id=node8 class=hiddennode data-title="SELinux options">
+
+<table>
+<thead>
+<tr>
+  <th>Short option</th>
+  <th>long option</th>
+  <th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td></td>
+  <td>--lcontext</td>
+  <td>Display security context.   Enable -l. Lines  will  probably  be too wide for most displays.</td>
+</tr>
+<tr>
+  <td>-Z</td>
+  <td>--context</td>
+  <td>Display  security context so it fits on most displays.  Displays only mode, user, group, security context and file name.</td>
+</tr>
+<tr>
+  <td></td>
+  <td>--scontext</td>
+  <td>Display only security context and file name.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<div id=node9 class=hiddennode data-title="Major and minor device numbers">
+
+<p><strong>Major numbers</strong></p>
+
+<p>For ODDI and pre-DDI 8 drivers, the major number identifies the device class or group, such as a controller for several terminals. It is used, for example, to tell the kernel which device driver's open routine to call. The major number is assigned, sequentially, to each device driver by the Installable Driver Tools (idtools) during driver installation. Assignment is made by creating an entry in the Master(4dsp) file (or mdevice(F) file for SCO OpenServer).</p>
+
+<p>Character major numbers and block major numbers are assigned separately for devices that are exclusively block or character. This means that two separate special files for two different device drivers may appear to have the same number assigned to them. A device that supports both block and character access (for example, the floppy driver), may have different major numbers for the character and block device files.</p>
+
+<p><strong>Minor numbers</strong></p>
+
+<p>For ODDI and pre-DDI 8 drivers, the minor number identifies a specific device, such as a single terminal. Minor numbers are assigned to special files by the driver writer in another system configuration file called the Node file (see the Node(4dsp) manual page).</p>
+
+<p>Minor numbers are typically used to distinguish subdevices, but they can also be used to convey other information. For example, consider a floppy disk controller that can read and write data from floppies in several formats, and can also manage two floppy drives. When a special file associated with the floppy driver is opened, the minor number associated with the file, and available to the open( ) routine as one of its arguments, is used to identify to the floppy driver both which drive to access, and what format to assume for the I/O operation. In this particular case, the least significant bit of the minor number could be used to identify the drive, and the remaining bits used to indicate the format. 
+<a href="http://uw714doc.sco.com/en/HDK_concepts/ddT_majmin.html">ref</a></p>
+
+<p><a href="http://www.kernel.org/pub/linux/docs/device-list/devices.txt">Kernel device list</a></p>
+
+<p><a href="http://www.linux-tutorial.info/modules.php?name=MContent&amp;pageid=94">Major and minor number tutorial</a></p>
+
+</div>
+
+<div id=node10 class=hiddennode data-title="Major and minor device numbers">
+
+<p><a href="https://wiki.archlinux.org/index.php/Users_and_Groups#Groups">More Info about Unix groups</a></p>
+
+</div>
+        </div>
+    </body>
+</html>
